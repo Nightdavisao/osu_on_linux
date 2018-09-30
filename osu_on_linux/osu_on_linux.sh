@@ -28,40 +28,28 @@ POL_SetupWindow_presentation "$TITLE" "$EDITOR" "$GAME_URL" "$AUTHOR" "$PREFIX"
 POL_Wine_SelectPrefix "$PREFIX"
 POL_Wine_PrefixCreate "$WINEVERSION"
  
-# Install .NET Framework 4.0
+# Install .NET Framework 4.0 and core fonts
 POL_Call POL_Install_dotnet40
 POL_Call POL_Install_corefonts
  
-# Create and select the required directory for the updater
+# Download the required fonts to Japanese characters
+cd "$WINEPREFIX/drive_c/windows/Fonts"
+POL_Download "https://github.com/Nightdavisao/osu_on_linux/blob/master/osu_on_linux/japanese_fonts/msgothic.ttc" "1f162793323e204a0d598a9aa4241443"
+POL_Download "https://github.com/Nightdavisao/osu_on_linux/blob/master/osu_on_linux/japanese_fonts/msmincho.ttc" "ea3f8835f67b492a0740ac34e1e807f8"
+
+# Now create "osu!" folder in Programs Files and download the osu! icon and set the current directory to "osu!" folder
 mkdir "$WINEPREFIX/drive_c/$PROGRAMFILES/osu!"
 cd "$WINEPREFIX/drive_c/$PROGRAMFILES/osu!"
- 
-# Download the updater and config file (the config file is required for osu! to launch properly)
+POL_Download "https://github.com/Nightdavisao/osu_on_linux/raw/master/osu_on_linux/icon/osu!.png"
+
+# Download the updater and open it
 POL_Download "https://m1.ppy.sh/r/osu!install.exe"
- 
 POL_Wine osu!install.exe
  
 # Wait for the updater to finish in order to create a shortcut of the executable
 POL_Wine_WaitExit "$TITLE"
  
-POL_Shortcut "osu!.exe" "osu!"
- 
-# Download the fonts required for Japanese characters support
-POL_SetupWindow_question "Install additional fonts for Japanese characters support?" "$TITLE"
- 
-if [ "$APP_ANSWER" = "TRUE" ]
-then
-    cd "$WINEPREFIX/drive_c/windows/Fonts"
-    POL_Download "https://raw.githubusercontent.com/edubkendo/.dotfiles/master/.fonts/msgothic.ttc" "1f162793323e204a0d598a9aa4241443"
-    POL_Download "https://raw.githubusercontent.com/edubkendo/.dotfiles/master/.fonts/msmincho.ttc" "ea3f8835f67b492a0740ac34e1e807f8"
-fi
- 
-# Ask if the user wants to register an account
-POL_SetupWindow_question "It is recommended that you register for an account and download some beatmaps before you start playing. Pressing yes will take you to the registration page, pressing no will finish the installation." "$TITLE"
- 
-if [ "$APP_ANSWER" = "TRUE" ]
-then
-    POL_Browser "https://osu.ppy.sh/p/register"
-fi
+POL_Shortcut "osu!.exe" "osu!" "osu!.png"
+
 POL_SetupWindow_Close
 exit
