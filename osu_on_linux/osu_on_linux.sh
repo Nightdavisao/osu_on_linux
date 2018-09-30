@@ -38,8 +38,8 @@ POL_Download "https://github.com/Nightdavisao/osu_on_linux/blob/master/osu_on_li
 POL_Download "https://github.com/Nightdavisao/osu_on_linux/blob/master/osu_on_linux/japanese_fonts/msmincho.ttc"
 
 # Now create "osu!" folder in Application Data and download the osu! icon and set the current directory to "osu!" folder
-mkdir "$WINEPREFIX/drive_c/users/$USER/Application Data/osu!"
-cd "$WINEPREFIX/drive_c/users/$USER/Application Data/osu!"
+mkdir "$WINEPREFIX/drive_c/users/$USER/Local Settings/Application Data/osu!"
+cd "$WINEPREFIX/drive_c/users/$USER/Local Settings/Application Data/osu!"
 POL_Download "https://github.com/Nightdavisao/osu_on_linux/raw/master/osu_on_linux/icon/osu!.png"
 
 # Download the updater and open it
