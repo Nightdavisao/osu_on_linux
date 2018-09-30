@@ -34,12 +34,12 @@ POL_Call POL_Install_corefonts
  
 # Download the required fonts to Japanese characters
 cd "$WINEPREFIX/drive_c/windows/Fonts"
-POL_Download "https://github.com/Nightdavisao/osu_on_linux/blob/master/osu_on_linux/japanese_fonts/msgothic.ttc" "1f162793323e204a0d598a9aa4241443"
-POL_Download "https://github.com/Nightdavisao/osu_on_linux/blob/master/osu_on_linux/japanese_fonts/msmincho.ttc" "ea3f8835f67b492a0740ac34e1e807f8"
+POL_Download "https://github.com/Nightdavisao/osu_on_linux/blob/master/osu_on_linux/japanese_fonts/msgothic.ttc"
+POL_Download "https://github.com/Nightdavisao/osu_on_linux/blob/master/osu_on_linux/japanese_fonts/msmincho.ttc"
 
-# Now create "osu!" folder in Programs Files and download the osu! icon and set the current directory to "osu!" folder
-mkdir "$WINEPREFIX/drive_c/$PROGRAMFILES/osu!"
-cd "$WINEPREFIX/drive_c/$PROGRAMFILES/osu!"
+# Now create "osu!" folder in Application Data and download the osu! icon and set the current directory to "osu!" folder
+mkdir "$WINEPREFIX/drive_c/users/$USER/Application Data/osu!"
+cd "$WINEPREFIX/drive_c/users/$USER/Application Data/osu!"
 POL_Download "https://github.com/Nightdavisao/osu_on_linux/raw/master/osu_on_linux/icon/osu!.png"
 
 # Download the updater and open it
