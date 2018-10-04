@@ -1,8 +1,10 @@
 # osu_on_linux
 An easy osu! installer for Linux platform using the frontend PlayOnLinux
+## Download:
+Releases: https://github.com/Nightdavisao/osu_on_linux/releases
 ## How to install
 1. Download and install PlayOnLinux
-2. Download "osu_on_linux.sh" file
+2. Download "osu_on_linux.sh"
 3. Open PlayOnLinux and go to "Tools" and click in "Run a local script"
 4. Click "Next" and click "Browse" and set the "osu_on_linux.sh"
 5. Just follow the installer assistant
